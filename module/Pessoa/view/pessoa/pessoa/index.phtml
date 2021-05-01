@@ -1,0 +1,27 @@
+<h1>Minha view Pessoa </h1>
+
+<a href="<?=$this->url('pessoa',['action' => 'adicionar'])?>" class="btn btn-success">Adicionar</a>
+
+<table class="table table-stripped">
+    <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Email</th>
+        <th>Situação</th>    
+    </tr>
+    <?php
+        foreach($pessoas as $pessoa):
+        ?>
+           <tr>
+                <td><?=$pessoa->getId()?></td>
+                <td><?=$pessoa->getNome()?></td>
+                <td><?=$pessoa->getSobrenome()?></td>
+                <td><?=$pessoa->getEmail()?></td>
+                <td><?=$pessoa->getSituacao()?></td>
+            </tr>   
+        <?php
+        endforeach;    
+        
+    ?>
+</table>

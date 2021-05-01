@@ -1,0 +1,23 @@
+<h1>Minha View de Produtos</h1>
+
+<table class="table table-stripped">
+    <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Situação</th>    
+    </tr>
+    <?php
+        foreach($produtos as $produto):
+        ?>
+           <tr>
+                <td><?=$produto->getId()?></td>
+                <td><?=$produto->getNome()?></td>
+                <td><?=$produto->getTipo()?></td>
+                <td><?=$produto->getSituacao()?></td>
+            </tr>   
+        <?php
+        endforeach;    
+        
+    ?>
+</table>

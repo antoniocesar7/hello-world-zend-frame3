@@ -1,0 +1,24 @@
+<h1>Minha view addresses </h1>
+<table class="table table-stripped">
+    <tr>
+        <th>Código</th>
+        <th>Address</th>
+        <th>Number</th>
+        <th>Cep</th>
+         
+    </tr>
+    <?php
+        foreach($addresses as $addre):
+        ?>
+           <tr>
+                <td><?=$addre->getId()?></td>
+                <td><?=$addre->getAddress()?></td>
+                <td><?=$addre->getNumber()?></td>
+                <td><?=$addre->getCep()?></td>
+                
+            </tr>   
+        <?php
+        endforeach;    
+        
+    ?>
+</table>

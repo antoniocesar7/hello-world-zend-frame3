@@ -1,0 +1,26 @@
+<h1>Minha View anClassificacaos</h1>
+
+<table class="table table-stripped">
+    <tr>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Código</th>
+       
+
+        
+    </tr>
+    <?php
+    
+        foreach($anClassificacaos as $anClassificacao):
+        ?>
+           <tr>
+                <td><?=$anClassificacao->getId()?></td>
+                <td><?=$anClassificacao->getDescricao()?></td>
+                <td><?=$anClassificacao->getCodigo()?></td>
+                               
+            </tr>   
+        <?php
+        endforeach;    
+        
+    ?>
+</table>
