@@ -1,0 +1,66 @@
+<?php
+    $title = "Adicionando Categoria";
+?>
+
+<h1><?=$this->escapeHtml($title)?></h1>
+
+<?php
+$form->setAttribute('action',$this->url('an-categoria',['action' => 'adicionar']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+	
+$id = $this->form->get('id');
+$descricao = $this->form->get('descricao');
+$codigo = $this->form->get('codigo');
+$chave = $this->form->get('chave');
+
+$descricao->setAttribute('class','form-control');
+$codigo->setAttribute('class','form-control');
+$chave->setAttribute('class','form-control');
+$descricao->setAttribute('autofocus','autofocus');
+
+$submit = $this->form->get('submit');
+$submit->setAttribute('class','btn btn-primary btn-lg');
+?>
+
+<?=$this->formElement($id)?>
+
+<div class="row">
+    <?=$this->formElement($submit)?>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+
+        <?=$this->formLabel($descricao)?>
+        <?=$this->formElement($descricao)?>
+        <?=$this->formElementErrors()->render($descricao,['class' => 'help-desk'])?>
+
+    </div>
+
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($codigo)?>
+        <?=$this->formElement($codigo)?>
+        <?=$this->formElementErrors()->render($codigo,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($chave)?>
+        <?=$this->formElement($chave)?>
+        <?=$this->formElementErrors()->render($chave,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <?=$this->formElement($submit)?>
+    <a class="btn btn-warning" href="<?=$this->url('an-categoria',['action' => 'index'])?>">Voltar</a>
+</div>

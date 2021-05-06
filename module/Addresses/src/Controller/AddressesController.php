@@ -1,12 +1,12 @@
 <?php
  
- namespace Addresses\Controller;
+namespace Addresses\Controller;
 
 use Addresses\Form\AddressesForm;
 use Addresses\Model\Addresses;
 use Zend\Mvc\Controller\AbstractActionController;
- use Zend\View\Model\ViewModel;
-use Zend\View\View;
+use Zend\View\Model\ViewModel;
+
 
 class AddressesController extends AbstractActionController{
      
@@ -28,18 +28,18 @@ class AddressesController extends AbstractActionController{
         $form = new AddressesForm();
         $form->get('submit')->setValue('Adicionar');
         $request = $this->getRequest();
-        if($request->isPost()){
+        if(!$request->isPost()){
             return new ViewModel(['form' => $form]);
         }
 
         $addresses = new Addresses();
-        $form->getData($request->getPost());
+        $form->setData($request->getPost());
         if(!$form->isValid()){
             return new ViewModel(['form' => $form]);
         }
 
         $addresses->exchangeArray($form->getData());
-        $this->table->salvarAddersses($addresses);
+        $this->table->salvarAddresses($addresses);
 
         return $this->redirect()->toRoute('addresses');
 

@@ -1,0 +1,74 @@
+<?php
+$title = "Adicionando Pessoa";
+?>
+
+<h1><?=$this->escapeHtml($title)?></h1>
+
+<?php
+$form->setAttribute('action',$this->url('addresses',['action' => 'adicionar']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+
+$id = $this->form->get('id');
+$address = $this->form->get('address');
+$number = $this->form->get('number');
+$neighborhood = $this->form->get('neighborhood');
+$cep = $this->form->get('cep');
+
+$address->setAttribute('class','form-control');
+$number->setAttribute('class','form-control');
+$neighborhood->setAttribute('class','form-control');
+$cep->setAttribute('class','form-control');
+$address->setAttribute('autofocus','autofocus');
+
+$submit = $this->form->get('submit');
+$submit->setAttribute('class','btn btn-primary btn-lg');
+
+?>
+
+<?=$this->formElement($id)?>
+
+<div class="row">
+    <?=$this->formElement($submit)?>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($address)?>
+        <?=$this->formElement($address)?>
+        <?=$this->formElementErrors()->render($address,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($number)?>
+        <?=$this->formElement($number)?>
+        <?=$this->formElementErrors()->render($number,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($neighborhood )?>
+        <?=$this->formElement($neighborhood)?>
+        <?=$this->formElementErrors()->render($neighborhood,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-4">
+        <?=$this->formLabel($cep)?>
+        <?=$this->formElement($cep)?>
+        <?=$this->formElementErrors()->render($cep,['class' => 'help-desk'])?>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <?=$this->formElement($submit)?>
+    <a class="btn btn-warning" href="<?=$this->url('addresses',['action' => 'index'])?>">Voltar</a>
+</div>

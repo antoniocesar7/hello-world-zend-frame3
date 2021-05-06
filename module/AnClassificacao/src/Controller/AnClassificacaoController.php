@@ -31,7 +31,7 @@ class AnClassificacaoController extends AbstractActionController{
         }
 
         $anClassificacao = new AnClassificacao();
-        $form->getData($request->getPost());
+        $form->setData($request->getPost());
         if(!$form->isValid()){
             return new ViewModel(['form' => $form]);
         }

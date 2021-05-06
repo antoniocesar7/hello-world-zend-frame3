@@ -30,7 +30,7 @@ class AnCategoriaValController extends AbstractActionController{
         }
 
         $anCategoriaVal = new AnCategoriaVal();
-        $form->getData($request->getPost());
+        $form->setData($request->getPost());
         if(!$form->isValid()){
             
             return new ViewModel(['form' => $form]);

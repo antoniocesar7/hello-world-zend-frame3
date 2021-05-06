@@ -14,7 +14,7 @@ class AnClassificacaoForm extends Form{
 
         $this->add(new Hidden('id'));
         $this->add(new Text("descricao",['label' => "Descrição"]));
-        $this->add(new Text("codido",['label' => "Código"]));
+        $this->add(new Text("codigo",['label' => "Código"]));
 
         $submit = new Submit('submit');
         $submit->setAttributes([

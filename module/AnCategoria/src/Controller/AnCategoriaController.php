@@ -31,13 +31,13 @@ class AnCategoriaController extends AbstractActionController{
         }
         
         $anCategoria = new AnCategoria();
-        $form->getData($request->getPost());
+        $form->setData($request->getPost());
         if(!$form->isValid()){
             return new ViewModel(['form' => $form]);
         }
 
         $anCategoria->exchangeArray($form->getData());
-        $this->salvarAnCategoria($anCategoria);
+        $this->table->salvarAnCategoria($anCategoria);
 
         return $this->redirect()->toRoute('an-categoria');
 

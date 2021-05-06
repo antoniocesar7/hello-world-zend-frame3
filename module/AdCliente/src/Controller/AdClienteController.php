@@ -3,10 +3,10 @@
 namespace AdCliente\Controller;
 
 use AdCliente\Form\AdClienteForm;
-use AdCliente\Model\AdCliente;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\Controller\Plugin\Redirect;
 use Zend\View\Model\ViewModel;
+use AdCliente\Model\AdCliente;
 
 class AdClienteController extends AbstractActionController{
     private $table;
@@ -28,15 +28,16 @@ class AdClienteController extends AbstractActionController{
         if(!$request->isPost()){
             return new ViewModel(['form' => $form]);
         }
-
+        
         $adCliente = new AdCliente();
-        $form->getData($request->getPost());
+        $form->setData($request->getPost());
+
         if(!$form->isValid()){
             return new ViewModel(['form' => $form]);
         }
 
         $adCliente->exchangeArray($form->getData());
-        $this->salvarAdCliente($adCliente);
+        $this->table->salvarAdCliente($adCliente);
 
         return $this->redirect()->toRoute('ad-cliente');
 
